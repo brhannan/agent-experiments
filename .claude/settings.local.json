@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p output)",
+      "Bash(python output/analysis.py)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
