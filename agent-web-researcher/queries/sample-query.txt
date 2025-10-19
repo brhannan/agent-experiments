@@ -1,0 +1,20 @@
+Research Question: What are the latest developments and best practices for building production-ready LLM agents?
+
+Context: I'm interested in understanding the current state of agent development, particularly:
+- Common architectural patterns (orchestrator-workers, evaluator-optimizer, etc.)
+- Production deployment considerations
+- Tool design best practices
+- Real-world examples from companies
+
+Sources to Consult:
+1. Anthropic Engineering Blog (https://www.anthropic.com/engineering)
+2. Simon Willison's Blog (https://simonwillison.net)
+3. LangChain Blog (https://blog.langchain.dev)
+
+Output Requirements:
+- Focus on developments from the last 6 months
+- Include specific examples where possible
+- Compare different approaches and patterns
+- Note any emerging trends or shifts in thinking
+
+Time Frame: Last 6 months (April 2025 - October 2025)
