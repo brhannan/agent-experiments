@@ -18,6 +18,12 @@ This directory contains web documentation and blog posts related to building age
 - **Tags**: multi-agent, research, claude, engineering, agents, architecture, agentic-systems, prompt-engineering, evaluation
 - **Description**: Deep dive into the engineering challenges and lessons learned from building Anthropic's multi-agent research system, covering architecture design, prompt engineering strategies, evaluation methods, and production reliability practices.
 
+#### [Embracing the parallel coding agent lifestyle](parallel-coding-agents.md)
+- **URL**: https://simonwillison.net/2025/Oct/5/parallel-coding-agents/
+- **Retrieved**: 2025-10-18
+- **Tags**: coding-agents, parallel-agents, ai-assisted-programming, claude-code, workflow, llms, software-development
+- **Description**: Simon Willison shares patterns for running multiple coding agents in parallel, including research tasks, system understanding, maintenance work, and carefully directed development, with practical tips on tools and workflows.
+
 ## Usage
 
 These markdown files can be used as context for LLM prompting and agent development. Each file includes:
