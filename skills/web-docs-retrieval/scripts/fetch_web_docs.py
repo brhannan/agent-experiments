@@ -11,7 +11,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Tuple, List, Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, parse_qs, unquote
 import hashlib
 
 try:
@@ -118,6 +118,20 @@ class WebDocsRetriever:
             print(f"Warning: Failed to download image {img_url}: {e}")
             return None
     
+    def extract_actual_image_url(self, url: str) -> str:
+        """Extract actual image URL from Next.js or other proxy URLs."""
+        # Handle Next.js image optimization URLs like:
+        # /_next/image?url=https%3A%2F%2Fwww-cdn.anthropic.com%2F...&w=3840&q=75
+        if '/_next/image' in url:
+            parsed = urlparse(url)
+            params = parse_qs(parsed.query)
+            if 'url' in params:
+                # Decode the URL-encoded actual image URL
+                actual_url = unquote(params['url'][0])
+                return actual_url
+        
+        return url
+    
     def process_images(self, soup: BeautifulSoup, base_url: str, article_slug: str) -> dict:
         """Find all images and download them, return mapping of old to new URLs."""
         image_map = {}
@@ -132,10 +146,16 @@ class WebDocsRetriever:
             if not src.startswith(('http://', 'https://')):
                 src = urljoin(base_url, src)
             
-            # Download image
-            local_path = self.download_image(src, article_slug)
+            # Extract actual image URL (handles Next.js proxy URLs)
+            actual_url = self.extract_actual_image_url(src)
+            
+            # Download image from actual URL
+            local_path = self.download_image(actual_url, article_slug)
             if local_path:
+                # Map BOTH the proxy URL and actual URL to the local path
                 image_map[src] = local_path
+                if actual_url != src:
+                    image_map[actual_url] = local_path
         
         return image_map
     
@@ -145,7 +165,11 @@ class WebDocsRetriever:
         markdown = self.html_converter.handle(html)
         
         # Update image references
-        for old_url, new_path in image_map.items():
+        # Sort by length (longest first) to avoid partial replacements
+        sorted_urls = sorted(image_map.keys(), key=len, reverse=True)
+        
+        for old_url in sorted_urls:
+            new_path = image_map[old_url]
             # Handle both markdown ![alt](url) and HTML <img src="url"> formats
             markdown = markdown.replace(old_url, new_path)
         

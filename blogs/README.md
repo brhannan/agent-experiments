@@ -12,6 +12,12 @@ This directory contains web documentation and blog posts related to building age
 - **Tags**: agents, claude, sdk, agentic-loops, tool-use, code-generation, mcp
 - **Description**: Comprehensive guide on building powerful agents using the Claude Agent SDK, covering the agent feedback loop (gather context -> take action -> verify work -> repeat), best practices, and practical examples including email agents, finance agents, and research agents.
 
+#### [How we built our multi-agent research system](how-we-built-our-multi-agent-research-system.md)
+- **URL**: https://www.anthropic.com/engineering/multi-agent-research-system
+- **Retrieved**: 2025-10-18
+- **Tags**: multi-agent, research, claude, engineering, agents, architecture, agentic-systems, prompt-engineering, evaluation
+- **Description**: Deep dive into the engineering challenges and lessons learned from building Anthropic's multi-agent research system, covering architecture design, prompt engineering strategies, evaluation methods, and production reliability practices.
+
 ## Usage
 
 These markdown files can be used as context for LLM prompting and agent development. Each file includes:
