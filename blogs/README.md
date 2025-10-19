@@ -24,6 +24,12 @@ This directory contains web documentation and blog posts related to building age
 - **Tags**: coding-agents, parallel-agents, ai-assisted-programming, claude-code, workflow, llms, software-development
 - **Description**: Simon Willison shares patterns for running multiple coding agents in parallel, including research tasks, system understanding, maintenance work, and carefully directed development, with practical tips on tools and workflows.
 
+#### [Writing effective tools for agents — with agents](writing-effective-tools-for-agents-with-agents.md)
+- **URL**: https://www.anthropic.com/engineering/writing-tools-for-agents
+- **Retrieved**: 2025-10-18
+- **Tags**: agents, tool-development, mcp, claude-code, engineering, tool-use, evaluation
+- **Description**: Comprehensive guide on creating high-quality tools for AI agents, covering prototype development, comprehensive evaluations, collaboration with agents, and key principles for effective tool design.
+
 ## Usage
 
 These markdown files can be used as context for LLM prompting and agent development. Each file includes:
